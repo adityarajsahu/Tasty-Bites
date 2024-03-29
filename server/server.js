@@ -14,6 +14,17 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/meals", async (req, res) => {
+    const data = await fs.readFile("../server/data/available-meals.json", "utf8");
+    res.json(JSON.parse(data));
+});
+
+app.use((req, res) => {
+    if (req.method === "OPTIONS") {
+        res.sendStatus(200);
+    }
+});
+
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
