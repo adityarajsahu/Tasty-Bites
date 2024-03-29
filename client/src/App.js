@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+
+import Header from "./components/Header";
 
 function App() {
     useEffect(() => {
@@ -8,9 +10,9 @@ function App() {
     }, []);
 
     return (
-        <>
-            <h1>Tasty Bites</h1>
-        </>
+        <React.Fragment>
+            <Header />
+        </React.Fragment>
     );
 }
 
